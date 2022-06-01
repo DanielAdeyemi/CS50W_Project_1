@@ -23,7 +23,8 @@
 
 #### **_Wikipedia mock up website with my own style and functionality._**
 
-<hr>
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
+
 <summary><h3>📋 Project Specifications </h3></summary>
 <details>
 
@@ -53,6 +54,7 @@
 |  7a   |   MD to HTML conversion   |   Challenge for those more comfortable: If you’re feeling more comfortable, try implementing the Markdown to HTML conversion without using any external libraries, supporting headings, boldface text, unordered lists, links, and paragraphs. You may find using regular expressions in Python helpful.   |    ❌     |
 
 </details>
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
 
 ## 🛠️ _Technologies used:_
 
@@ -62,21 +64,30 @@
 - CSS 3
 - Git and GitHub
 
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
+
 ## 🖥️ View the project:
 
 Access to vide demo will be here when the project is done.
 
 <!-- You can access video demonstration of the project functionallity [here](https://youtu.be/COEqBrtfsic) -->
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
 
 ## 🐛 _Known bugs:_
 
 - no bugs at this time
 
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
+
 ## 🌟 _Improvement opportunities:_
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
 
 ## 📬 Contact Information
 
 #### For any questions _[email author](mailto:adeyemidany+github@gmail.com?subject=[GitHubAPI])_
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
 
 ## 📘 _License and copyright:_
 
