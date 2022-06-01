@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.urls import reverse
 
 from . import util
 
@@ -10,11 +12,10 @@ def index(request):
 
 
 def topics(request, topic):
-    index = 0
-    topicsIn = util.list_entries()
-    for i, topicIn in enumerate(topicsIn):
-        if(topic == topicIn.lower()):
-            index = i
-    return render(request, "encyclopedia/topic.html", {
-        "topic": util.get_entry(topic)
-    })
+    if(util.get_entry(topic)):
+        return render(request, "encyclopedia/topic.html", {
+            "topic": util.get_entry(topic),
+            "header": topic.capitalize()
+        })
+    else:
+        return render(request, "encyclopedia/error.html")
