@@ -17,7 +17,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/DanielAdeyemi/CS50W_Project_1?color=purple&style=for-the-badge) ![Languages](https://img.shields.io/github/languages/top/DanielAdeyemi/CS50W_Project_1?color=purple&style=for-the-badge)
 
 </div>
-<img src="https://i.insider.com/5fbd515550e71a001155724f?width=2000&format=jpeg&auto=webp" alt="wikilogo" height="250px"/>
+<p align="center"><img src="https://i.insider.com/5fbd515550e71a001155724f?width=2000&format=jpeg&auto=webp" alt="wikilogo" height="250px"/> </p>
 
 ## 🚩 _Description:_
 
