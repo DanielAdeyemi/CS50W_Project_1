@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
-
+from django import forms
 from . import util
 
 
@@ -12,10 +12,11 @@ def index(request):
 
 
 def topics(request, topic):
-    if(util.get_entry(topic)):
-        return render(request, "encyclopedia/topic.html", {
-            "topic": util.get_entry(topic),
-            "header": topic.capitalize()
-        })
-    else:
-        return render(request, "encyclopedia/error.html")
+    if request.method == 'GET':
+        if(util.get_entry(topic)):
+            return render(request, "encyclopedia/topic.html", {
+                "topic": util.get_entry(topic),
+                "header": topic.capitalize()
+            })
+        else:
+            return render(request, "encyclopedia/error.html")
