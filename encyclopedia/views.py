@@ -3,15 +3,26 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django import forms
 from . import util
+from re import search, compile
 
 
 def index(request):
-    if request.method == 'GET':
-        prin = request.GET.get('q')
+    # if request.method == 'GET':
+    title = request.GET.get('q', '')
+    topics = util.list_entries()
+    potential_topics = []
+    p = compile('css')
+    if title:
+        print((p.search(title)))
         return render(request, "encyclopedia/topic.html", {
-            "topic": util.get_entry(prin),
-            "header": prin.capitalize()
+            "topic": util.get_entry(title),
+            "header": title.capitalize()
         })
+        if prin in 'css':
+            return render(request, "encyclopedia/topic.html", {
+                "topic": util.get_entry('css'),
+                "header": 'css'.capitalize()
+            })
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
     })
