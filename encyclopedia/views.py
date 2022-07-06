@@ -1,7 +1,12 @@
+from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from . import util
+
+
+class NewTaskForm(forms.Form):
+    topic = forms.CharField(label='New Topic')
 
 
 def index(request):
@@ -9,7 +14,7 @@ def index(request):
     title = request.GET.get('q', '')
     topics = util.list_entries()
     potential_topics = []
-
+    print(title)
     for topic in topics:
         if(title.upper() in topic.upper()):
             potential_topics.append(topic)
@@ -48,3 +53,11 @@ def error(request, param):
     return render(request, "encyclopedia/error.html", {
         "param": 'param'
     })
+
+
+def add(request):
+    return render(request, 'encyclopedia/add.html'
+                  )
+    # , {
+    #     'form': NewTaskForm
+    # })
