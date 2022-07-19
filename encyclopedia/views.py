@@ -5,7 +5,7 @@ from django.urls import reverse
 from . import util
 
 
-class NewTaskForm(forms.Form):
+class NewTopicForm(forms.Form):
     topic = forms.CharField(label='New Topic')
 
 
@@ -14,7 +14,6 @@ def index(request):
     title = request.GET.get('q', '')
     topics = util.list_entries()
     potential_topics = []
-    print(title)
     for topic in topics:
         if(title.upper() in topic.upper()):
             potential_topics.append(topic)
@@ -56,8 +55,11 @@ def error(request, param):
 
 
 def add(request):
-    return render(request, 'encyclopedia/add.html'
-                  )
+    # if request.method == 'GET':
+    return render(request, "encyclopedia/add.html")
     # , {
-    #     'form': NewTaskForm
-    # })
+    #     'form': NewTopicForm})
+
+
+def adds(request):
+    return render(request, "encyclopedia/adds.html")
