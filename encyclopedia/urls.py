@@ -8,5 +8,4 @@ urlpatterns = [
     path("<str:topic>", views.topics, name="topic"),
     path("error", views.error, name="error"),
     path("add", views.add, name="add"),
-    path("adds", views.adds, name="adds"),
 ]

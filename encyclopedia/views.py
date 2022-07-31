@@ -1,3 +1,4 @@
+from cProfile import label
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -7,6 +8,7 @@ from . import util
 
 class NewTopicForm(forms.Form):
     topic = forms.CharField(label='New Topic')
+    text = forms.CharField(label='Description', widget=forms.Textarea())
 
 
 def index(request):
@@ -47,6 +49,18 @@ def topics(request, topic):
         else:
             return render(request, "encyclopedia/add.html", {
                 'form': NewTopicForm})
+    elif request.method == 'POST':
+        form = NewTopicForm(request.POST)
+        if form.is_valid():
+            topic = form.cleaned_data['topic']
+            return HttpResponseRedirect(reverse('encyclopedia:index'))
+        else:
+            return render(request, 'encyclopedia/add.html', {
+                'form': form
+            })
+    return render(request, 'encyclopedia/add.html', {
+        'form': NewTopicForm
+    })
 
 
 def error(request, param):
@@ -56,9 +70,18 @@ def error(request, param):
 
 
 def add(request):
-    if request.method == 'GET':
-        return render(request, "encyclopedia/add.html", {
-            'form': NewTopicForm})
+    if request.method == 'POST':
+        form = NewTopicForm(request.POST)
+        if form.is_valid():
+            topic = form.cleaned_data['topic']
+            return HttpResponseRedirect(reverse('encyclopedia:index'))
+        else:
+            return render(request, 'encyclopedia/add.html', {
+                'form': form
+            })
+    return render(request, 'encyclopedia/add.html', {
+        'form': NewTopicForm
+    })
 
 
 def adds(request):
