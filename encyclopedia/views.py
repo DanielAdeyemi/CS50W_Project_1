@@ -1,6 +1,7 @@
 from cProfile import label
 from multiprocessing import context
 from pydoc import describe
+import random
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -129,3 +130,12 @@ def add(request):
             })
     return render(request, "encyclopedia/add.html", {
         'form': NewTopicForm})
+
+
+def randomEntry(request):
+    topics = util.list_entries()
+    title = random.choice(topics)
+    return render(request, "encyclopedia/topic.html", {
+        "topic": util.get_entry(title),
+        "header": title.capitalize()
+    })
