@@ -1,4 +1,5 @@
 from cProfile import label
+from pydoc import describe
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -53,6 +54,8 @@ def topics(request, topic):
         form = NewTopicForm(request.POST)
         if form.is_valid():
             topic = form.cleaned_data['topic']
+            description = form.cleaned_data['text']
+            util.save_entry(topic, description)
             return HttpResponseRedirect(reverse('encyclopedia:index'))
         else:
             return render(request, 'encyclopedia/add.html', {
