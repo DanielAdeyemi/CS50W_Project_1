@@ -55,9 +55,15 @@ def topics(request, topic):
         if form.is_valid():
             topic = form.cleaned_data['topic']
             description = form.cleaned_data['text']
-            mdEntry = '# ' + topic + '\n' + description
-            util.save_entry(topic, mdEntry)
-            return HttpResponseRedirect(reverse('encyclopedia:index'))
+            mdEntry = '# ' + topic + '\n' + '\n' + description
+            if util.get_entry(topic):
+                return render(request, "encyclopedia/error.html")
+            else:
+                util.save_entry(topic, mdEntry)
+                return render(request, "encyclopedia/topic.html", {
+                    "topic": mdEntry,
+                    "header": topic.capitalize()
+                })
         else:
             return render(request, 'encyclopedia/add.html', {
                 'form': form
