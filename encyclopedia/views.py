@@ -91,6 +91,15 @@ def edit(request):
     context['form'] = form
     if request.method == "GET":
         return render(request, 'encyclopedia/edit.html', context)
+    elif request.method == 'POST':
+        if form.is_valid():
+            topic = form.cleaned_data['topic']
+            description = form.cleaned_data['text']
+            util.save_entry(topic, description)
+            return render(request, "encyclopedia/topic.html", {
+                "topic": description,
+                "header": topic.capitalize()
+            })
 
 
 def error(request, param):
