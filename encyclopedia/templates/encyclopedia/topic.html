@@ -13,4 +13,10 @@
   {% endfor %}
 </ul> -->
 
+<a href="{% url 'encyclopedia:edit'%}?topic={{ header }}">
+  <!-- <button> -->
+  Edit this topic
+  <!-- </button> -->
+</a>
+
 {% endblock %}
