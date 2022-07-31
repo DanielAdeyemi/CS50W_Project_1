@@ -45,7 +45,8 @@ def topics(request, topic):
                 "header": topic.capitalize()
             })
         else:
-            return render(request, "encyclopedia/error.html")
+            return render(request, "encyclopedia/add.html", {
+                'form': NewTopicForm})
 
 
 def error(request, param):
@@ -55,10 +56,9 @@ def error(request, param):
 
 
 def add(request):
-    # if request.method == 'GET':
-    return render(request, "encyclopedia/add.html")
-    # , {
-    #     'form': NewTopicForm})
+    if request.method == 'GET':
+        return render(request, "encyclopedia/add.html", {
+            'form': NewTopicForm})
 
 
 def adds(request):
