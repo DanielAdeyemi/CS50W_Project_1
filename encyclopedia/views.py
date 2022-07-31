@@ -55,7 +55,8 @@ def topics(request, topic):
         if form.is_valid():
             topic = form.cleaned_data['topic']
             description = form.cleaned_data['text']
-            util.save_entry(topic, description)
+            mdEntry = '# ' + topic + '\n' + description
+            util.save_entry(topic, mdEntry)
             return HttpResponseRedirect(reverse('encyclopedia:index'))
         else:
             return render(request, 'encyclopedia/add.html', {

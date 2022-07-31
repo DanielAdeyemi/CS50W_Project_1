@@ -1,1 +1,2 @@
-structured language
+# sql
+structured query language
