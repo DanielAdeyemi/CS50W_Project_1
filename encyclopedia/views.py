@@ -32,7 +32,7 @@ def index(request):
     if title:
         if(util.get_entry(title)):
             return render(request, "encyclopedia/topic.html", {
-                "topic": util.get_entry(title),
+                "topic": markdown2.markdown(util.get_entry(title)),
                 "header": title.capitalize()
             })
         elif(len(potential_topics)):

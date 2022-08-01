@@ -68,9 +68,7 @@
 
 ## 🖥️ View the project:
 
-Access to vide demo will be here when the project is done.
-
-<!-- You can access video demonstration of the project functionallity [here](https://youtu.be/COEqBrtfsic) -->
+You can access video demonstration of the project functionallity [here](https://youtu.be/xdFXzDSagz0)
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
 
 ## 🐛 _Known bugs:_
