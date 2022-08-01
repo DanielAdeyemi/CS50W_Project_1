@@ -83,6 +83,9 @@ Access to vide demo will be here when the project is done.
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
 
+- Implement markdown to HTML conversion without extra libraries.
+- Improve styles
+
 ## 📬 Contact Information
 
 #### For any questions _[email author](mailto:adeyemidany+github@gmail.com?subject=[GitHubAPI])_
