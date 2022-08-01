@@ -41,7 +41,7 @@ def index(request):
             })
         else:
             return render(request, "encyclopedia/error.html", {
-                "param": title
+                "message": title + " is not in an encyclopedia"
             })
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
@@ -76,8 +76,8 @@ def topics(request, topic):
             return render(request, 'encyclopedia/add.html', {
                 'form': form
             })
-    return render(request, 'encyclopedia/add.html', {
-        'form': NewTopicForm
+    return render(request, 'encyclopedia/error.html', {
+        'message': "Page doesn't exist"
     })
 
 
@@ -106,7 +106,7 @@ def edit(request):
 
 def error(request, param):
     return render(request, "encyclopedia/error.html", {
-        "param": 'param'
+        "message": param
     })
 
 
@@ -118,7 +118,9 @@ def add(request):
             description = form.cleaned_data['text']
             mdEntry = '# ' + topic + '\n' + '\n' + description
             if util.get_entry(topic):
-                return render(request, "encyclopedia/error.html")
+                return render(request, "encyclopedia/error.html", {
+                    "message": "Page for " + topic + " already exsists."
+                })
             else:
                 util.save_entry(topic, mdEntry)
                 return render(request, "encyclopedia/topic.html", {
@@ -137,6 +139,6 @@ def randomEntry(request):
     topics = util.list_entries()
     title = random.choice(topics)
     return render(request, "encyclopedia/topic.html", {
-        "topic": util.get_entry(title),
+        "topic": markdown2.markdown(util.get_entry(title)),
         "header": title.capitalize()
     })

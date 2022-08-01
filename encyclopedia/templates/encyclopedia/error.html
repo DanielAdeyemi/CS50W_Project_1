@@ -5,9 +5,7 @@ Error
 {% endblock %}
 
 {% block body %}
-{% if param %}
-<h1>Page with {{ param }} is not found?!!</h1>
-{%else%}
-<h1>This topic already exsists</h1>
-{%endif%}
+
+<h2>{{ message }} </h2>
+
 {% endblock %}
