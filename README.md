@@ -1,6 +1,6 @@
 ## <div align="center"> Wiki
 
-#### <div align="center">📚 _CS50 Web Project # 1 (Week 4) 05/31-06/../2022_ </div>
+#### <div align="center">📚 _CS50 Web Project # 1 (Week 4) 05/31-07/31/2022_ </div>
 
 **_<p align="right">By Daniel Adeyemi_**</p>
 
