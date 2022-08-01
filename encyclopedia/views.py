@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from . import util
+import markdown2
 
 
 class NewTopicForm(forms.Form):
@@ -51,7 +52,7 @@ def topics(request, topic):
     if request.method == 'GET':
         if(util.get_entry(topic)):
             return render(request, "encyclopedia/topic.html", {
-                "topic": util.get_entry(topic),
+                "topic": markdown2.markdown(util.get_entry(topic)),
                 "header": topic.capitalize()
             })
         # else:
@@ -68,7 +69,7 @@ def topics(request, topic):
             else:
                 util.save_entry(topic, mdEntry)
                 return render(request, "encyclopedia/topic.html", {
-                    "topic": mdEntry,
+                    "topic": markdown2.markdown(util.get_entry(topic)),
                     "header": topic.capitalize()
                 })
         else:
@@ -98,7 +99,7 @@ def edit(request):
             description = form.cleaned_data['text']
             util.save_entry(topic, description)
             return render(request, "encyclopedia/topic.html", {
-                "topic": description,
+                "topic": markdown2.markdown(util.get_entry(topic)),
                 "header": topic.capitalize()
             })
 
@@ -121,7 +122,7 @@ def add(request):
             else:
                 util.save_entry(topic, mdEntry)
                 return render(request, "encyclopedia/topic.html", {
-                    "topic": mdEntry,
+                    "topic": markdown2.markdown(util.get_entry(topic)),
                     "header": topic.capitalize()
                 })
         else:

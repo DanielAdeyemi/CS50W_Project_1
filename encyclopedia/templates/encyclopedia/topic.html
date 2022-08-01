@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-<h1>{{ topic }}</h1>
+{{ topic| safe }}
 
 <!-- <ul>
   {% for entry in entries %}
